@@ -1,11 +1,11 @@
 package main;
 
-public abstract class TaxedItem implements Item {
+public abstract class TaxedItem implements ItemInterface {
 
-	public Item item;
+	public ItemInterface item;
 	public double rate;
 
-	public TaxedItem(Item item) {
+	public TaxedItem(ItemInterface item) {
 		this.item = item;
 	}
 

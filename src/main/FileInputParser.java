@@ -21,10 +21,10 @@ public class FileInputParser {
 		return Integer.valueOf(parse(order).group(1));
 	}
 	
-	public static Item fileParser(String order) {
+	public static ItemInterface fileParser(String order) {
 		Matcher m = parse(order);
 		String name = m.group(2).trim();
-		WorkingItem item = new WorkingItem(1, name, Double.valueOf(m.group(4)));
+		Item item = new Item(1, name, Double.valueOf(m.group(4)));
 		if (Utilities.isExempted(name)) {
 			item.setExempted(true);
 		}

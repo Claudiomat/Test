@@ -4,9 +4,9 @@ public class SalesTaxedItem extends TaxedItem {
 
 	final double TAX_RATE = 0.1;
 	
-	private Item taxedItem;
+	private ItemInterface taxedItem;
 
-	public SalesTaxedItem(Item item) {
+	public SalesTaxedItem(ItemInterface item) {
 		super(item);
 		this.taxedItem = item;
 	}
@@ -48,8 +48,8 @@ public class SalesTaxedItem extends TaxedItem {
 
 		if (obj == null) {
 			return false;
-		} else if (obj instanceof Item) {
-			return (((Item) obj).hashCode() == this.hashCode());
+		} else if (obj instanceof ItemInterface) {
+			return (((ItemInterface) obj).hashCode() == this.hashCode());
 
 		} else
 			return false;

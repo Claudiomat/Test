@@ -23,18 +23,18 @@ public class ShopBasket {
 	    Utilities.printBasketOutput();
 	}
 
-	private final Map<Item, Integer> itemsMap = new HashMap<Item, Integer>();
-	public Set<Item> getItems() {
+	private final Map<ItemInterface, Integer> itemsMap = new HashMap<ItemInterface, Integer>();
+	public Set<ItemInterface> getItems() {
 		return itemsMap.keySet();
 	}
 	
-	public int getQuantity(Item item){
+	public int getQuantity(ItemInterface item){
 		return itemsMap.get(item);	
 	}
 
 	public double getTotal() {
 		double total = 0;
-		for (Item item : itemsMap.keySet()) {		
+		for (ItemInterface item : itemsMap.keySet()) {		
 			double subTotal = item.getPrice() * getQuantity(item);
 			total += subTotal;
 		}
@@ -43,7 +43,7 @@ public class ShopBasket {
 	
 	public double getTotalWithTaxes() {
 		double taxtotal = 0;
-		for (Item item : itemsMap.keySet()) {		
+		for (ItemInterface item : itemsMap.keySet()) {		
 			double subTotal = item.getPrice() * getQuantity(item);
 			double subInitTotal = item.getInitialPrice() * getQuantity(item);
 			taxtotal += subTotal - subInitTotal;
@@ -51,7 +51,7 @@ public class ShopBasket {
 		return taxtotal;
 	}
 	
-	public void put (Item item, int count){
+	public void put (ItemInterface item, int count){
 		if (!item.isExempted()) {
 			item = new SalesTaxedItem(item);
 		}
@@ -65,7 +65,7 @@ public class ShopBasket {
 		this.itemsMap.put(item, count);
 	}	
 	
-	public void remove (Item item) {
+	public void remove (ItemInterface item) {
 		this.itemsMap.remove(item);
 	}
 	
@@ -76,7 +76,7 @@ public class ShopBasket {
 	public void printInput(int n) {
 		DecimalFormat df = new DecimalFormat("##.00");
 		System.out.println("Input " + n + ":");
-		for ( Item item : itemsMap.keySet() ){
+		for ( ItemInterface item : itemsMap.keySet() ){
 			System.out.println(itemsMap.get(item) + " " + item.getName() + " at " + df.format(item.getInitialPrice()));
 		}	
 		System.out.println();
@@ -87,8 +87,8 @@ public class ShopBasket {
 		double taxtotal = 0;
 		double total = 0;
 		System.out.println("Output " + n + ":");
-		Set<Item> taxedItems = itemsMap.keySet();
-		for (Item item : taxedItems){		
+		Set<ItemInterface> taxedItems = itemsMap.keySet();
+		for (ItemInterface item : taxedItems){		
 			double subTotal = item.getPrice() * getQuantity(item);
 			double subInitTotal = item.getInitialPrice() * getQuantity(item);
 			taxtotal += subTotal - subInitTotal;

@@ -4,9 +4,9 @@ public class ImportedTaxedItem extends TaxedItem {
 	
 	final double TAX_RATE = 0.05;
 	
-	private Item taxedItem;
+	private ItemInterface taxedItem;
 
-	public ImportedTaxedItem(Item item) {
+	public ImportedTaxedItem(ItemInterface item) {
 		super(item);
 		this.taxedItem = item;
 	}
@@ -48,8 +48,8 @@ public class ImportedTaxedItem extends TaxedItem {
 
 		if (obj == null) {
 			return false;
-		} else if (obj instanceof Item) {
-			return (((Item) obj).hashCode() == this.hashCode());
+		} else if (obj instanceof ItemInterface) {
+			return (((ItemInterface) obj).hashCode() == this.hashCode());
 
 		} else
 			return false;
