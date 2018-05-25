@@ -87,7 +87,7 @@ public class Utilities {
 		int n=0;
 		for (ShopBasket shopBasket : shopBasketList) {
 			n++;
-			shopBasket.printOutput(n);;
+			shopBasket.printOutput(n);
 		}
 	}
 	

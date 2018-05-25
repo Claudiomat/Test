@@ -98,7 +98,7 @@ public class ShopBasket {
 		total = Utilities.roundPrice(total);
 		System.out.println("Sales Taxes: "+df.format(taxtotal));
 		System.out.println("Total: "+df.format(total));
-		System.out.println();;
+		System.out.println();
 	}
 
 

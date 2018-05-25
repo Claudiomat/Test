@@ -29,7 +29,7 @@ public class FileInputParser {
 			item.setExempted(true);
 		}
 		if (name.contains("imported")) {
-			item.setImported(true);;
+			item.setImported(true);
 		}
 		return item;
 	}

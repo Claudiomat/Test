@@ -10,7 +10,7 @@ public abstract class TaxedItem implements ItemInterface {
 	}
 
 	public double getPrice(){
-		double salesTax = Utilities.adjust(this.getTaxRate() * this.item.getInitialPrice());;
+		double salesTax = Utilities.adjust(this.getTaxRate() * this.item.getInitialPrice());
 		return Utilities.roundPrice(this.item.getPrice() + salesTax);
 	}
 	
